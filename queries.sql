@@ -121,3 +121,37 @@ INNER JOIN dept_emp AS de
 ON (ce.emp_no = de.emp_no)
 INNER JOIN departments AS d
 ON (de.dept_no = d.dept_no);
+
+-- CLASS ACTIVITY #4 
+-- Create a new table in the Misc_DB database
+CREATE Table wordassociation (
+     author INT NOT NULL,
+     word1 VARCHAR NOT NULL,
+	 word2 VARCHAR NOT NULL,
+	 source VARCHAR NOT NULL
+     );
+SELECT * FROM wordassociation
+-- Create a query in which the data in the `word1` column is `stone`. 
+-- ALTER TABLE wordassociation
+-- RENAME stone TO word1;
+SELECT word1 FROM wordassociation
+WHERE word1 LIKE 'stone';
+
+-- Create a query that collects all rows in which the author is within the range 0–10.
+SELECT * FROM wordassociation
+WHERE author 
+BETWEEN 0 AND 10
+
+--Create a query that searches for any rows that have `pie` in their `word1` or `word2` columns.
+SELECT * FROM wordassociation
+WHERE 
+	(word1 LIKE 'pie%')
+OR 
+	(word2 LIKE '_pie');
+	
+-- Import `WordAssociation_BC.csv` to the `wordassociation` table 
+-- Explore filtering on the `source` column.
+
+SELECT * 
+FROM wordassociation
+GROUP BY source;
