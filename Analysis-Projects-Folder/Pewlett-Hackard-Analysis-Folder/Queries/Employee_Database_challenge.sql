@@ -34,8 +34,8 @@ ORDER BY emp_no, title DESC;
 SELECT COUNT(title) FROM unique_titles;
 
 -- Create the retiring_table
-SELECT COUNT(ut.title), title
-INTO retiring_titles
+SELECT title, COUNT(ut.title)
+--INTO retiring_titles
 FROM unique_titles as ut
 GROUP BY title
 ORDER BY count DESC;
